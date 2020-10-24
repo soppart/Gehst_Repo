@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 203699786}
   m_Layer: 8
   m_Name: examplePlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,9 +188,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_LinearDrag: 0.15
+  m_AngularDrag: 0.25
+  m_GravityScale: 2.34
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -231,7 +231,7 @@ MonoBehaviour:
     m_Bits: 512
   m_GroundCheck: {fileID: 26092517}
   m_CeilingCheck: {fileID: 543327433}
-  m_CrouchDisableCollider: {fileID: 0}
+  m_CrouchDisableCollider: {fileID: 203699790}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -245,15 +245,15 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203699785}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5712142435ee24a428397def5ce268bf, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.36299407, y: -5.9289074}
+  m_Offset: {x: 0.14568448, y: -5.9289074}
   serializedVersion: 2
-  m_Radius: 3.606007
+  m_Radius: 3.1293619
 --- !u!61 &203699790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -263,11 +263,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 203699785}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5712142435ee24a428397def5ce268bf, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.48396802, y: -0.33058977}
+  m_Offset: {x: 0.15979981, y: 1.6144114}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -278,7 +278,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.9281526, y: 18.721195}
+  m_Size: {x: 6.279816, y: 14.831194}
   m_EdgeRadius: 0
 --- !u!212 &203699791
 SpriteRenderer:
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 543327433}
   m_Layer: 8
   m_Name: ceilingcheck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
