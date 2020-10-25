@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-           
+            Debug.Log("space");
             jump = true;
           //  animator.SetBool("isJumping", true);
 
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
     }
 }
