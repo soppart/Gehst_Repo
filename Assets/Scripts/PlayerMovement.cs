@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
-   // public Animator animator;
+    public Animator animator;
 
     public float runSpeed = 40f;
 
@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        // animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
+       animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        Debug.Log(Mathf.Abs(horizontalMove));
         if (Input.GetButtonDown("Jump"))
         {
             Debug.Log("space");
