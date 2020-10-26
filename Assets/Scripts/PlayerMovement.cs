@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f;
 
     float horizontalMove = 0f;
+    
+
     bool jump = false;
 
 
@@ -21,21 +23,23 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        Debug.Log(Mathf.Abs(horizontalMove));
+       
         if (Input.GetButtonDown("Jump"))
         {
             Debug.Log("space");
             jump = true;
-          //  animator.SetBool("isJumping", true);
+           animator.SetBool("isJumping", true);
 
         }
 
     }
 
-   // public void OnLanding ()
-  //  {
-  //      animator.SetBool("isJumping", false);
-   // }
+    public void OnLanding()
+    {
+        // if velocity not positive 
+        animator.SetBool("isJumping", false);
+        Debug.Log("landed");
+    }
 
     void FixedUpdate()
     {
