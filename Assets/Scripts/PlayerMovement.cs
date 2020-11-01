@@ -6,11 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
-    public Animator animator;
+     public Animator animator;
 
     public float runSpeed = 40f;
 
-    float horizontalMove = 0f;
+     float horizontalMove = 0f;
     
 
     bool jump = false;
@@ -20,15 +20,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+     horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-       animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
        
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Debug.Log("space");
+            Debug.Log("up");
             jump = true;
            animator.SetBool("isJumping", true);
+         
 
         }
 
@@ -37,8 +38,9 @@ public class PlayerMovement : MonoBehaviour
     public void OnLanding()
     {
         // if velocity not positive 
-        animator.SetBool("isJumping", false);
+       
         Debug.Log("landed");
+        animator.SetBool("isJumping", false);
     }
 
     void FixedUpdate()
@@ -46,5 +48,6 @@ public class PlayerMovement : MonoBehaviour
         // Move our character
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
+
     }
 }

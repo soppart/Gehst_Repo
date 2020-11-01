@@ -19,7 +19,10 @@ public class CharacterController2D : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
-    
+
+    //float horizontalMove = 0f;
+   // public float runSpeed = 40f;
+    public Animator animator;
 
     [Header("Events")]
     [Space]
@@ -47,6 +50,8 @@ public class CharacterController2D : MonoBehaviour
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
+        
+
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -56,10 +61,11 @@ public class CharacterController2D : MonoBehaviour
             {
                 m_Grounded = true;
                 canJump = true;
+                //animator.SetBool("isJumping", false);
                 if (!wasGrounded)
                 {
                     OnLandEvent.Invoke();
-                    Debug.Log("OnLandEvent");
+                   // Debug.Log("OnLandEvent");
                     //Debug.Log(transform.position.y);
                 }
             }
@@ -76,7 +82,7 @@ public class CharacterController2D : MonoBehaviour
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
-            Debug.Log("m_grounded");
+            //Debug.Log("m_grounded");
            
 
             // Move the character by finding the target velocity
@@ -101,11 +107,10 @@ public class CharacterController2D : MonoBehaviour
         if (m_Grounded && jump)
         {
             // Add a vertical force to the player.
-            Debug.Log("jumping?");
+           // Debug.Log("jumping?");
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-
-
+                                         
 
         }
         //double jump
@@ -113,6 +118,7 @@ public class CharacterController2D : MonoBehaviour
         {
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             canJump = false;
+
         }
     }
 

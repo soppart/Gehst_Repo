@@ -16,6 +16,7 @@ public class followWhenClose : MonoBehaviour
     //public Rigidbody2D m_Rigidbody;
     //public Vector3 m_ZAxis;
 public Vector2 enemy;
+    private bool m_FacingRight = true; 
 
 void Awake() {
      
@@ -58,6 +59,13 @@ void OnTriggerEnter2D(){
     //     if (target == null)
     //     return;
 
+     
+transform.eulerAngles = new Vector3(0, 0, 0 );
+ 
+//Or if you want to lock only one of the rotations, FOR EXAMPLE Z ROTATION:
+ 
+transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0 );
+
                                             //  Vector3 dir = target.position - transform.position;
                                             //       dir. Normalize();
 
@@ -74,8 +82,20 @@ void OnTriggerEnter2D(){
    
  //transform.LookAt(targetPosFlattened);
        //transform.Translate(Vector2.right * Time.deltaTime);
+      // Flip();
        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime); transform.right = target.position - transform.position;
     
+
      }
  }
+
+// private void Flip()
+ //   {
+        // Switch the way the player is labelled as facing.
+        // // Multiply the player's x local scale by -1.
+        // Vector3 theScale = transform.localScale;
+        // theScale.x *= -1;
+        // transform.localScale = theScale;
+  //  }
+
 }
