@@ -6,7 +6,7 @@ public class followWhenClose : MonoBehaviour
 {
     
     public float maxRange = 10f;
-    public float minRange = 2f;
+    public float minRange = 4f;
     public float speed = 2f;
     Transform target;
     
