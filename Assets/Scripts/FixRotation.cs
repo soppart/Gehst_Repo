@@ -10,9 +10,6 @@ public class FixRotation : MonoBehaviour
   {
        rotation = transform.rotation;
   }
-
-//    void Update () 
-//      {
 //         // Switch the way the player is labelled as facing.
 //         m_FacingRight = !m_FacingRight;
 
