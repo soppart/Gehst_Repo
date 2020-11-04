@@ -37,12 +37,18 @@ public class JohnPlayerMove : MonoBehaviour
         }
 
         grounded = Physics2D.OverlapCircle(feetPoint.position, .5f, groundlayer);
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
         {
+            
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
+            _animator.SetBool("isJumping", true);
         }
-        _animator.SetBool("Grounded", grounded);
+        if (grounded = false)
+        {
+            _animator.SetBool("grounded", false);
+        }
+       // _animator.SetBool("grounded", grounded);
     }
 
 
