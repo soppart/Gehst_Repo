@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
-     public Animator animator;
+   
 
     public float runSpeed = 40f;
 
@@ -22,13 +22,12 @@ public class PlayerMovement : MonoBehaviour
 
      horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
        
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Debug.Log("up");
             jump = true;
-           animator.SetBool("isJumping", true);
+           
          
 
         }
@@ -40,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         // if velocity not positive 
        
         Debug.Log("landed");
-        animator.SetBool("isJumping", false);
+       
     }
 
     void FixedUpdate()

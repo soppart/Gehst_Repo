@@ -22,7 +22,10 @@ public class CharacterController2D : MonoBehaviour
 
     //float horizontalMove = 0f;
    // public float runSpeed = 40f;
-    public Animator animator;
+   
+   public Animator anim;
+  
+
 
     [Header("Events")]
     [Space]
@@ -83,7 +86,8 @@ public class CharacterController2D : MonoBehaviour
         if (m_Grounded || m_AirControl)
         {
             //Debug.Log("m_grounded");
-           
+            anim.SetBool("jump",false);
+            anim.SetBool("jump2",false);
 
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
@@ -111,14 +115,17 @@ public class CharacterController2D : MonoBehaviour
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
                                          
-
+           anim.SetBool("jump",true);
         }
+        
         //double jump
         else if (jump && canJump)
         {
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             canJump = false;
 
+            anim.SetBool("jump",false);
+            anim.SetBool("jump2",true);
         }
     }
 

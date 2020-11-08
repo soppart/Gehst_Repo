@@ -38,12 +38,15 @@ public class JohnPlayerMove : MonoBehaviour
         }
 
         //check for grounded
-        grounded = Physics2D.OverlapCircle(feetPoint.position, .5f, groundlayer);
-
+       // grounded = Physics2D.OverlapCircle(feetPoint.position, .5f, groundlayer);
+            grounded = Physics2D.OverlapCircle(feetPoint.position, .5f, groundlayer);
         
         if (grounded)
         {
             secondJump = true;
+            _animator.SetBool("jump",false);
+            _animator.SetBool("jump2",false);
+            _animator.SetBool("grounded", true);
         }
         else
         {
@@ -54,21 +57,27 @@ public class JohnPlayerMove : MonoBehaviour
         { 
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
-            _animator.SetBool("isJumping", true);
+            _animator.SetBool("jump",true);
+            
         }
+        
         else if(Input.GetKeyDown(KeyCode.W) && !grounded && secondJump)
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
-            _animator.SetBool("isJumping", true);
+            _animator.SetBool("jump",false);
+            _animator.SetBool("jump2",true);
+            
             secondJump = false;
         }
 
-        // if (!grounded)
-        //{
-        //    _animator.SetBool("grounded", false);
-        //}
-       // _animator.SetBool("grounded", grounded);
+    
+
+        if (!grounded)
+        {
+           _animator.SetBool("grounded", false);
+        }
+       _animator.SetBool("grounded", grounded);
     }
 
 
