@@ -13,6 +13,7 @@ public class JohnPlayerMove : MonoBehaviour
     public LayerMask groundlayer;
     public Transform feetPoint;
     public bool grounded;
+    public bool secondJump;
 
     private HealthManager _healthManager;
 
@@ -36,18 +37,37 @@ public class JohnPlayerMove : MonoBehaviour
             transform.localScale *= new Vector2(-1, 1);
         }
 
+        //check for grounded
         grounded = Physics2D.OverlapCircle(feetPoint.position, .5f, groundlayer);
-        if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
+
+        
+        if (grounded)
         {
-            
+            secondJump = true;
+        }
+        else
+        {
+            _animator.SetBool("grounded", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) /* Input.GetKeyDown(KeyCode.UpArrow)*/ && grounded)
+        { 
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
             _animator.SetBool("isJumping", true);
         }
-        if (grounded = false)
+        else if(Input.GetKeyDown(KeyCode.W) && !grounded && secondJump)
         {
-            _animator.SetBool("grounded", false);
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
+            _rigidbody.AddForce(new Vector2(0, jumpForce));
+            _animator.SetBool("isJumping", true);
+            secondJump = false;
         }
+
+        // if (!grounded)
+        //{
+        //    _animator.SetBool("grounded", false);
+        //}
        // _animator.SetBool("grounded", grounded);
     }
 
