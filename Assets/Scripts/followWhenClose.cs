@@ -13,7 +13,7 @@ public class followWhenClose : MonoBehaviour
 //public float rotSpeed = 80f;
      //private bool m_FacingRight = true; 
    
-    //public Rigidbody2D m_Rigidbody;
+    
     //public Vector3 m_ZAxis;
 public Vector2 enemy;
     private bool m_FacingRight = true; 
@@ -23,17 +23,12 @@ void Awake() {
  }
  // Use this for initialization
  void Start () {
-     //rigidbody.freezeRotation = true;
+    
      //Vector3 position = new Vector3(transform.position.x,transform.position.y,0);
      target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
      
 
-    //  m_Rigidbody = GetComponent<Rigidbody2D>();
-    //     //This locks the RigidBody so that it does not move or rotate in the z axis (can be seen in Inspector).
-    //     m_Rigidbody.constraints = RigidbodyConstraints2D.FreezePositionZ | RigidbodyConstraints2D.FreezeRotationZ;
-    //     //Set up vector for moving the Rigidbody in the z axis
-    //     m_ZAxis = new Vector3(0, 0, 5);
-     
+    
      
       
  }
@@ -41,6 +36,10 @@ void Awake() {
  // Update is called once per frame
  void Update () {
 
+if ((speed < 0 && transform.localScale.x > 0) ||(speed > 0 && transform.localScale.x < 0))
+        {
+            transform.localScale *= new Vector2(-1, 1);
+        }
 
 void OnTriggerEnter2D(){
         Debug.Log ("Trigger!");
@@ -60,14 +59,15 @@ void OnTriggerEnter2D(){
     //     return;
 
      
-transform.eulerAngles = new Vector3(0, 0, 0 );
+//transform.eulerAngles = new Vector3(0, 0, 0 ); *****************************************
  
 //Or if you want to lock only one of the rotations, FOR EXAMPLE Z ROTATION:
  
-transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0 );
+//transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0 ); *****************************************
 
                                             //  Vector3 dir = target.position - transform.position;
                                             //       dir. Normalize();
+
 
         if((Vector2.Distance(transform.position,target.position)<maxRange)
         && (Vector2.Distance(transform.position,target.position)>minRange)){
