@@ -11,6 +11,7 @@ public class JohnPlayerMove : MonoBehaviour
     Animator _animator;
 
     public LayerMask groundlayer;
+   // public LayerMask enemylayer;
     public Transform feetPoint;
     public bool grounded;
     public bool secondJump;

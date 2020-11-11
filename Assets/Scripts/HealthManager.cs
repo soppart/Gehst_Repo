@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour
     //Renderer rend;
     //Color c;
 
-    private int health = 5;
+    public int health = 5;
 
     private int maxHealth = 5;
 
@@ -74,6 +74,7 @@ public class HealthManager : MonoBehaviour
         health -= amount;
         if (health < 1)
         {
+
             print("die");
         }
         UpdateLifeBar();
