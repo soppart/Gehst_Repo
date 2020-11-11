@@ -6,7 +6,8 @@ public class enemyAggro : MonoBehaviour
 {
     [SerializeField]
     
-  //Animator enemyAnim;
+  Animator enemyAnim;
+  [SerializeField]
     Transform player;
 
     [SerializeField]
@@ -27,7 +28,7 @@ public class enemyAggro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- //enemyAnim.SetFloat("Speed", Mathf.Abs(moveSpeed));
+        enemyAnim.SetFloat("Speed", Mathf.Abs(moveSpeed));
 
         float distToPlayer = Vector2.Distance(transform.position, player.position);
         print("distToPlayer:" + distToPlayer);
