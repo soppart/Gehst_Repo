@@ -16,7 +16,7 @@ public class followWhenClose : MonoBehaviour
     
     //public Vector3 m_ZAxis;
 public Vector2 enemy;
-    private bool m_FacingRight = true; 
+   // private bool m_FacingRight = true; 
 
 void Awake() {
      
@@ -26,14 +26,10 @@ void Awake() {
     
      //Vector3 position = new Vector3(transform.position.x,transform.position.y,0);
      target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-     
-
-    
-     
       
  }
  
- // Update is called once per frame
+    
  void Update () {
 
 if ((speed < 0 && transform.localScale.x > 0) ||(speed > 0 && transform.localScale.x < 0))

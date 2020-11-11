@@ -39,7 +39,7 @@ public class JohnPlayerMove : MonoBehaviour
 
         //check for grounded
        // grounded = Physics2D.OverlapCircle(feetPoint.position, .5f, groundlayer);
-            grounded = Physics2D.OverlapCircle(feetPoint.position, .5f, groundlayer);
+            grounded = Physics2D.OverlapCircle(feetPoint.position, .4f, groundlayer);
         
         if (grounded)
         {

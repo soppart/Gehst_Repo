@@ -71,8 +71,15 @@ public class enemyAggro : MonoBehaviour
     else  if(transform.position.x > player.position.x)
     {
         rb2d.velocity = new Vector2(-moveSpeed, 0); //move left
-       transform.localScale = new Vector2(-1,1);
+       //transform.localScale = new Vector2(-1,1);
     }
+
+        if ((rb2d.velocity[0] > 3 && transform.localScale.x > 0) || (rb2d.velocity[0] < -3 && transform.localScale.x < 0))
+        {
+            transform.localScale *= new Vector2(-1, 1);
+        }
+
+
     }
 
     private void StopChasingPlayer()
@@ -81,3 +88,5 @@ public class enemyAggro : MonoBehaviour
     }
 
 }
+
+
