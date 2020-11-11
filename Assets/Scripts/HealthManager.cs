@@ -40,20 +40,21 @@ public class HealthManager : MonoBehaviour
     void UpdateLifeBar()
     {
         Image[] img_ary = healthBar.GetComponentsInChildren<Image>();
-        for(int i = 0; i < img_ary.Length; i++)
+        for(int i = 1; i < img_ary.Length; i++)
         {
             if(i<= health)
             {
                 //c.a = 1f;
                 //rend.material.color = c;
-               // img_ary[i].color = Color.red;
+                img_ary[i].color = new Color(.95f,.86f, .73f,1f);
+                
             }
             else
             {
                 //c.a = 0.3f;
                 //rend.material.color = c;
-                Destroy(img_ary[i]);
-                // img_ary[i].color = Color.black;
+                //Destroy(img_ary[i]);
+                img_ary[i].color = new Color(0,0,0,0.4f);
             }
         }
     }
@@ -64,6 +65,7 @@ public class HealthManager : MonoBehaviour
         {
             health++;
             UpdateLifeBar();
+           
         }
     }
 

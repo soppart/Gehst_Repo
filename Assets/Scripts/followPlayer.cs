@@ -5,7 +5,7 @@ using UnityEngine;
 public class followPlayer : MonoBehaviour
 {
 
-    public float rotSpeed = 80f;
+   // public float rotSpeed = 80f;
     Transform player;
 
     // Update is called once per frame
