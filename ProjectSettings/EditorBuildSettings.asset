@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: edfb15640befe4ddc881f40819a02d44
   - enabled: 1
-    path: Assets/Scenes/Home.unity
-    guid: d72ebbb7b78ca4e9d92d211a2269f257
+    path: Assets/Scenes/Lv1.unity
+    guid: ad0d9a56ce3f145e2bbb7b4b9e41d0ae
+  - enabled: 1
+    path: Assets/Scenes/Lv2.unity
+    guid: 836a0c5edf44442a1a3231db0b6c54c3
+  - enabled: 1
+    path: Assets/Scenes/Lv3.unity
+    guid: 05fcce588cfcc44b5a35bb82f73565e8
+  - enabled: 1
+    path: Assets/Scenes/GmaHouse.unity
+    guid: 936c7acdfd5424df69dce2946278369d
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: 7b24570ed56ad4cc0ad6ae6969cfdf7a
   m_configObjects: {}

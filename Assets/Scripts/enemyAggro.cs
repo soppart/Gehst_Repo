@@ -43,8 +43,6 @@ public class enemyAggro : MonoBehaviour
                 StopChasingPlayer();
         }
 
-
-
 // if (moveSpeed < 0 && transform.position.x < player.position.x) 
 //         {
 //             transform.localScale *= new Vector2(1, 1);
@@ -75,7 +73,7 @@ public class enemyAggro : MonoBehaviour
        //transform.localScale = new Vector2(-1,1);
     }
 
-        if ((rb2d.velocity[0] > 3 && transform.localScale.x > 0) || (rb2d.velocity[0] < -3 && transform.localScale.x < 0))
+        if ((rb2d.velocity[0] > 2 && transform.localScale.x > 0) || (rb2d.velocity[0] < -2 && transform.localScale.x < 0))
         {
             transform.localScale *= new Vector2(-1, 1);
         }

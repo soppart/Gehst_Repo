@@ -612,9 +612,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc0127702e48462083f883bbe479e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAnim: {fileID: 265692880}
   player: {fileID: 844090909}
   aggroRange: 6
-  moveSpeed: 4
+  moveSpeed: 3
 --- !u!50 &265692884
 Rigidbody2D:
   serializedVersion: 4
@@ -627,7 +628,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -674,7 +675,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372f54a002e2d45c68498e8700609ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 265692880}
   maxhealth: 10
+  Rigid: {fileID: 265692884}
+  knockback: 2
+  gotHit: 0
 --- !u!1 &318819782
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5899994, y: 1.4275208, z: -10}
+  m_LocalPosition: {x: -3.5899997, y: 1.4275208, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1106,7 +1111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &808828689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,9 +1124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc0127702e48462083f883bbe479e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAnim: {fileID: 808828692}
   player: {fileID: 844090909}
   aggroRange: 6
-  moveSpeed: 4
+  moveSpeed: 3
 --- !u!50 &808828690
 Rigidbody2D:
   serializedVersion: 4
@@ -1266,7 +1272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372f54a002e2d45c68498e8700609ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 808828692}
   maxhealth: 10
+  Rigid: {fileID: 0}
+  knockback: 2
+  gotHit: 0
 --- !u!1 &830246111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,7 +2054,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372f54a002e2d45c68498e8700609ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   maxhealth: 10
+  Rigid: {fileID: 0}
+  knockback: 2
+  gotHit: 0
 --- !u!1 &1239401431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,7 +2380,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372f54a002e2d45c68498e8700609ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   maxhealth: 10
+  Rigid: {fileID: 0}
+  knockback: 2
+  gotHit: 0
 --- !u!50 &1728335105
 Rigidbody2D:
   serializedVersion: 4
@@ -2540,7 +2558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800829959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5899994, y: 1.4275208, z: -10}
+  m_LocalPosition: {x: -3.5899997, y: 1.4275208, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1578074842}

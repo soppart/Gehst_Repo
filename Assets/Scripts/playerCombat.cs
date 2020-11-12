@@ -11,6 +11,15 @@ public class playerCombat : MonoBehaviour
    public float attackRange = 0.5f;
    
    public int attackDamage = 5;
+
+    //public GameObject circusEnemy;
+    //public Rigidbody2D Rigid;
+    //public float knockback = 2.0f;
+
+    //void Start()
+    //{
+    //   Rigid = circusEnemy.GetComponent<Rigidbody2D>();
+    //}
     // Update is called once per frame
     void Update()
     {
@@ -29,6 +38,8 @@ public class playerCombat : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies){
                 enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            ////knockback
+            //Rigid.AddForce(transform.forward * knockback);
         }
     }
 

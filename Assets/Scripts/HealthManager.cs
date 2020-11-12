@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -74,6 +75,9 @@ public class HealthManager : MonoBehaviour
         health -= amount;
         if (health < 1)
         {
+            // end screen
+
+            SceneManager.LoadScene("DeathScreen");
 
             print("die");
         }
