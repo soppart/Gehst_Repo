@@ -8,9 +8,7 @@ public class Enemy : MonoBehaviour
     //GameObject enemy = GameObject.FindWithTag("enemy");
         public int maxhealth = 10;
     int currentHealth;
-    //  void Awake () {
-    //      otherAnimator = enemy.GetComponent<Animator>();
-    //  }
+   
 
     //public GameObject circusEnemy;
     public Rigidbody2D Rigid;
@@ -67,8 +65,7 @@ public class Enemy : MonoBehaviour
       currentHealth -= damage;
       Debug.Log("hit");
     animator.SetTrigger("hurt");
-        //otherAnimator.GetComponent<Animator>.SetTrigger("hurt");
-        // animator.SetTrigger("hurt");
+        
 
         //knockback
         gotHit = true;
@@ -89,16 +86,13 @@ public class Enemy : MonoBehaviour
 
 void Die(){
 
+//enemyAnim.SetBool("isDead", true);
     Debug.Log("enemy died");
 
 animator.SetTrigger("death");
-   // yield return new WaitForSeconds(3f);
+   
     Destroy(gameObject);
-    //otherAnimator.GetComponent<Animator>.SetTrigger("hurt");
-   // animator.SetTrigger("hurt");
-// GetComponent<Collider2D>().enabled = false;
-// GetComponent<SpriteRenderer>().enabled = false;
-//     this.enabled = false;
+
     
 }
 

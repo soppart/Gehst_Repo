@@ -34,44 +34,32 @@ public class enemyAggro : MonoBehaviour
         float distToPlayer = Vector2.Distance(transform.position, player.position);
         print("distToPlayer:" + distToPlayer);
 
-
         if(distToPlayer < aggroRange)
         {
                 chasePlayer();
+                enemyAnim.SetBool("isWalking", true);
         }
         else
         {
                 StopChasingPlayer();
+                enemyAnim.SetBool("isWalking", false);
         }
 
-// if (moveSpeed < 0 && transform.position.x < player.position.x) 
-//         {
-//             transform.localScale *= new Vector2(1, 1);
-//         }
-// else if(moveSpeed > 0 && transform.position.x > player.position.x)
-// {
-//     transform.localScale *= new Vector2(-1, 1);
-// }
+
     }
-// void LateUpdate()
-// {
-//     if ((moveSpeed < 0 && transform.localScale.x > 0) ||(moveSpeed > 0 && transform.localScale.x < 0))
-//         {
-//             transform.localScale *= new Vector2(-1, 1);
-//         }
-// }
+
     private void chasePlayer()
     {
 
     if(transform.position.x < player.position.x) //move right
     {
         rb2d.velocity = new Vector2(moveSpeed, 0);
-       // transform.localScale *= new Vector2(1,1);
+       
     }
     else  if(transform.position.x > player.position.x)
     {
         rb2d.velocity = new Vector2(-moveSpeed, 0); //move left
-       //transform.localScale = new Vector2(-1,1);
+       
     }
 
         if ((rb2d.velocity[0] > 2 && transform.localScale.x > 0) || (rb2d.velocity[0] < -2 && transform.localScale.x < 0))
