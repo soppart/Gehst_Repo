@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
 
       currentHealth -= damage;
       Debug.Log("hit");
+    animator.SetTrigger("hurt");
         //otherAnimator.GetComponent<Animator>.SetTrigger("hurt");
         // animator.SetTrigger("hurt");
 

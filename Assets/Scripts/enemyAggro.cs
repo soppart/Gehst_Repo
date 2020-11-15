@@ -21,6 +21,7 @@ public class enemyAggro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         rb2d = GetComponent<Rigidbody2D>();
        // enemyAnim = GetComponent<Animator>();
     }
@@ -28,7 +29,7 @@ public class enemyAggro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyAnim.SetFloat("Speed", Mathf.Abs(moveSpeed));
+        
 
         float distToPlayer = Vector2.Distance(transform.position, player.position);
         print("distToPlayer:" + distToPlayer);
