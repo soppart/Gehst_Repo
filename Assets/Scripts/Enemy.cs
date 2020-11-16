@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public Animator animator;
     //GameObject enemy = GameObject.FindWithTag("enemy");
-        public int maxhealth = 10;
+        public int maxhealth = 8;
     int currentHealth;
    
 
@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
 
     void AddForce()
     {
-        m_NewForce = new Vector2(16.0f, 5.0f);
+        m_NewForce = new Vector2(14.0f, 7.0f);
         Rigid.AddForce(m_NewForce, ForceMode2D.Impulse);
     }
 
