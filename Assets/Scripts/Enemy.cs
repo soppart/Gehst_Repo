@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
             gotHit = false;
             
         }
-        if (frames == 200)
+        if (frames == 150)
         {
             //enable aggro
             gameObject.GetComponent<enemyAggro>().enabled = true;
