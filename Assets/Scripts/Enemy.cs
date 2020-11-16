@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     //public GameObject circusEnemy;
     public Rigidbody2D Rigid;
+    public BoxCollider2D Collide;
     public float knockback = 100.0f;
     Vector2 m_NewForce;
     public bool gotHit = false;
@@ -26,7 +27,7 @@ public class Enemy : MonoBehaviour
 
         //knockback
         Rigid = GetComponent<Rigidbody2D>();
- 
+        Collide = GetComponent<BoxCollider2D>();
         //transform.position = new Vector2(-2.0f, 0.0f);
         //m_NewForce = new Vector2(-5.0f, 1.0f);
     }
@@ -74,7 +75,8 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
       {
-          Die();
+            StartCoroutine("Death");
+          //Die();
       }
   }
 
@@ -84,16 +86,24 @@ public class Enemy : MonoBehaviour
         Rigid.AddForce(m_NewForce, ForceMode2D.Impulse);
     }
 
-void Die(){
 
-//enemyAnim.SetBool("isDead", true);
-    Debug.Log("enemy died");
+    IEnumerator Death()
+    {
+        Debug.Log("enemy died");
+        gameObject.GetComponent<enemyAggro>().enabled = false;
+        animator.SetBool("isDead", true);
+        yield return new WaitForSeconds(1.7f);
+        Destroy(gameObject);
+    }
+    //void Die(){
 
-animator.SetTrigger("death");
-   
-    Destroy(gameObject);
+    ////enemyAnim.SetBool("isDead", true);
+    //    Debug.Log("enemy died");
 
-    
+    //animator.SetTrigger("death");
+
+    //    Destroy(gameObject);
+
+
 }
 
-}
