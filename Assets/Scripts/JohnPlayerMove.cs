@@ -16,6 +16,7 @@ public class JohnPlayerMove : MonoBehaviour
     public bool grounded;
     public bool secondJump;
 
+
     private HealthManager _healthManager;
 
 

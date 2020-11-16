@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class glitchMonsterEnemy : MonoBehaviour
 {
     public Animator animator;
     //GameObject enemy = GameObject.FindWithTag("enemy");
@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     //public GameObject circusEnemy;
     public Rigidbody2D Rigid;
-    //public BoxCollider2D Collide;
+    public BoxCollider2D Collide;
     public float knockback = 100.0f;
     Vector2 m_NewForce;
     public bool gotHit = false;
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
         //knockback
         Rigid = GetComponent<Rigidbody2D>();
-        //Collide = GetComponent<BoxCollider2D>();
+        Collide = GetComponent<BoxCollider2D>();
         //transform.position = new Vector2(-2.0f, 0.0f);
         //m_NewForce = new Vector2(-5.0f, 1.0f);
     }
@@ -90,13 +90,10 @@ public class Enemy : MonoBehaviour
     IEnumerator Death()
     {
         Debug.Log("enemy died");
-       
         gameObject.GetComponent<enemyAggro>().enabled = false;
-        Rigid.constraints = RigidbodyConstraints2D.FreezePositionX;
-        Physics2D.IgnoreLayerCollision(8, 10, true);
         animator.SetBool("isDead", true);
-        yield return new WaitForSeconds(1.7f);
-        
+        // yield return new WaitForSeconds(1.7f);
+        yield return new WaitForSeconds(.60f);
         
         Destroy(gameObject);
     }

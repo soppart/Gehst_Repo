@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class playerHurt : MonoBehaviour
 {
-    public Animator animator;
+//public Animator animator;
     //GameObject enemy = GameObject.FindWithTag("enemy");
-        public int maxhealth = 10;
-    int currentHealth;
+        //public int maxhealth = 10;
+   // int currentHealth;
    
 
     //public GameObject circusEnemy;
     public Rigidbody2D Rigid;
     //public BoxCollider2D Collide;
-    public float knockback = 100.0f;
+    // public float knockback = 100.0f;
     Vector2 m_NewForce;
     public bool gotHit = false;
     private int frames = 0;
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         //damage
-        currentHealth = maxhealth;
+       // currentHealth = maxhealth;
 
         //knockback
         Rigid = GetComponent<Rigidbody2D>();
@@ -43,15 +43,15 @@ public class Enemy : MonoBehaviour
         {
             countFrames = true;
             //disable aggro
-            gameObject.GetComponent<enemyAggro>().enabled = false;
+            gameObject.GetComponent<JohnPlayerMove>().enabled = false;
             AddForce();
             gotHit = false;
             
         }
-        if (frames == 200)
+        if (frames == 25)
         {
             //enable aggro
-            gameObject.GetComponent<enemyAggro>().enabled = true;
+            gameObject.GetComponent<JohnPlayerMove>().enabled = true;
             countFrames = false;
             frames = 0;
         }
@@ -59,47 +59,40 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
-  {
-        //damage
+     void OnCollisionEnter2D (Collision2D col)
+    {
+        if (col.gameObject.name.Equals("circusEnemy"))
+            gotHit = true;
 
-      currentHealth -= damage;
-      Debug.Log("hit");
-    animator.SetTrigger("hurt");
+        if (col.gameObject.name.Equals("glitchEnemy"))
+            gotHit = true;
+
+        if (col.gameObject.name.Equals("glitchEnemyGFX"))
+            gotHit = true;
+
         
-
-        //knockback
-        gotHit = true;
-        //AddForce();
-       // Update();
-
-        if (currentHealth <= 0)
-      {
-            StartCoroutine("Death");
-          //Die();
-      }
-  }
+    }
 
     void AddForce()
     {
-        m_NewForce = new Vector2(16.0f, 5.0f);
+        m_NewForce = new Vector2(-8.0f, 5.0f);
         Rigid.AddForce(m_NewForce, ForceMode2D.Impulse);
     }
 
 
-    IEnumerator Death()
-    {
-        Debug.Log("enemy died");
+    // IEnumerator Death()
+    // {
+    //     Debug.Log("enemy died");
        
-        gameObject.GetComponent<enemyAggro>().enabled = false;
-        Rigid.constraints = RigidbodyConstraints2D.FreezePositionX;
-        Physics2D.IgnoreLayerCollision(8, 10, true);
-        animator.SetBool("isDead", true);
-        yield return new WaitForSeconds(1.7f);
+    //     gameObject.GetComponent<enemyAggro>().enabled = false;
+    //     Rigid.constraints = RigidbodyConstraints2D.FreezePositionX;
+    //     Physics2D.IgnoreLayerCollision(8, 10, true);
+    //     animator.SetBool("isDead", true);
+    //     yield return new WaitForSeconds(1.7f);
         
         
-        Destroy(gameObject);
-    }
+    //     Destroy(gameObject);
+    // }
     //void Die(){
 
     ////enemyAnim.SetBool("isDead", true);
